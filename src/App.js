@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header'
 import TodoInput from './components/todoInput'
+import TodoItem from './components/todoItem'
+
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +22,7 @@ class App extends Component {
     this.removeTodo = this.removeTodo.bind(this);
   }
 
-  addTodo(todoText) {
+  addTodo(todoText) {   //todoText는 이 메소드의 인자일 뿐.
     console.log("Todo Added; ", todoText);
   }
 
@@ -34,6 +36,13 @@ class App extends Component {
         <div className="todo-wrapper">
           <Header/>
           <TodoInput todoText="" addTodo={this.addTodo}/>
+          <ul>
+          {/*todos라는 배열을 map 함수를 통해 todo라는 todos배열의 요소를 처리. todo는 todos배열의 인자(들)*/}
+            {this.state.todos.map((todo) => {
+              return <TodoItem todo={todo} key={todo.id} id={todo.id} removeTodo={this.removeTodo}/>
+            })
+            }
+          </ul>
         </div>
       </div>
     );

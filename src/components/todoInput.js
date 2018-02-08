@@ -17,8 +17,8 @@ export default class TodoInput extends React.Component {
 
   addTodo(todo) {
     if (todo.length > 0) {
-      this.props.addTodo(todo);
-      this.setState({value: ''});
+      this.props.addTodo(todo);   //App.js 에서 받아온 addTodo
+      this.setState({value: ''});  //console에 찍고 나면 input 칸의 value는 비워야 함
     }
   }
 
