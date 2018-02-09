@@ -22,12 +22,19 @@ class App extends Component {
     this.removeTodo = this.removeTodo.bind(this);
   }
 
-  addTodo(todoText) {   //todoText는 이 메소드의 인자일 뿐.
-    console.log("Todo Added; ", todoText);
+  addTodo(todoText) {　　　　　　　　　　　　   //todoText는 이 메소드의 인자일 뿐.
+    let todos = this.state.todos.slice();
+      todos.push({id: this.state.nextId, text: todoText});
+        this.setState({
+          todos: todos,
+          nextId: ++this.state.nextId
+        });
   }
 
   removeTodo(id) {
-    console.log("removing; ", id);
+    this.setState({
+      todos: this.state.todos.filter((todo, index) => todo.id !== id)
+    });
   }
 
   render() {

@@ -27,8 +27,7 @@ export default class TodoInput extends React.Component {
       <div>
         <input type="text" value={this.state.value} onChange={this.handleChange} />
         <button className="btn btn-primary"
-                onClick={() => this.addTodo(this.state.value)}>
-        submit</button>
+                onClick={() => this.addTodo(this.state.value)}>submit</button>
       </div>
     );
   }
